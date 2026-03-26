@@ -110,6 +110,34 @@
     .hamburger { display: flex; }
     .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 70px; left: 0; right: 0; background: rgba(26,37,64,0.97); padding: 1.5rem 2rem; gap: 1.25rem; border-top: 1px solid rgba(201,168,76,0.2); }
   }
+
+  /* COOKIE BANNER */
+  #cookie-banner {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+    background: rgba(26,37,64,0.97);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding: 0.75rem 2rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+    font-size: 0.75rem; color: rgba(255,255,255,0.65);
+    transition: transform 0.4s ease;
+  }
+  #cookie-banner.hidden { transform: translateY(100%); }
+  #cookie-banner a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); }
+  #cookie-banner a:hover { color: var(--gold-light); }
+  #cookie-btn {
+    background: none; border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold); font-size: 0.7rem; font-family: 'Jost', sans-serif;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.3rem 0.9rem; border-radius: 2px; cursor: pointer;
+    white-space: nowrap; transition: all 0.3s;
+    flex-shrink: 0;
+  }
+  #cookie-btn:hover { background: var(--gold); color: var(--navy); }
+  @media (max-width: 600px) {
+    #cookie-banner { flex-direction: column; align-items: flex-start; gap: 0.6rem; padding: 0.9rem 1.25rem; }
+  }
+
 </style>
 </head>
 <body>
@@ -141,12 +169,19 @@
 
     <h2>1. Dados coletados</h2>
     <p>Este site não coleta dados pessoais de forma automática por meio de formulários, cadastros ou sistemas de captação. Caso você entre em contato voluntariamente via WhatsApp, e-mail ou qualquer outro canal disponibilizado, os dados fornecidos (nome, número de telefone, endereço de e-mail e conteúdo da mensagem) serão utilizados exclusivamente para responder à sua solicitação e não serão compartilhados com terceiros, cedidos, vendidos ou utilizados para qualquer finalidade diversa.</p>
+    <p>Este site utiliza o serviço Google Fonts para carregamento de fontes tipográficas. Ao acessar qualquer página, o navegador do visitante realiza uma requisição aos servidores do Google, o que pode implicar o registro do endereço IP pelo Google. Essa operação é de natureza técnica e não está sob controle direto deste site. A página da imobiliária utiliza ainda o serviço Elfsight para exibição de feed do Instagram, cujo funcionamento é regido pela política de privacidade própria desse serviço.</p>
 
     <h2>2. Finalidade do tratamento</h2>
     <p>Os dados eventualmente coletados têm por finalidade única e exclusiva o atendimento às solicitações realizadas pelo próprio titular, nos termos do art. 7º, V, da Lei nº 13.709/2018 (LGPD). Não realizamos tratamento de dados para fins publicitários, de perfilamento ou de cessão a terceiros.</p>
 
     <h2>3. Cookies</h2>
-    <p>Este site pode utilizar cookies técnicos essenciais para o funcionamento das páginas (como preferências de navegação e segurança). Não utilizamos cookies para fins publicitários, de rastreamento comportamental ou análise de audiência. Você pode configurar seu navegador para recusar cookies a qualquer momento; contudo, isso pode afetar o funcionamento de algumas funcionalidades da página.</p>
+    <p>Este site utiliza cookies técnicos essenciais para o funcionamento das páginas, como o armazenamento da preferência de aceite do aviso de cookies. Não utilizamos cookies para fins publicitários, de rastreamento comportamental ou análise de audiência própria.</p>
+    <p>No entanto, este site integra serviços de terceiros que podem definir cookies próprios no navegador do visitante:</p>
+    <ul style="margin: 0.75rem 0 0.75rem 1.5rem; line-height: 1.9;">
+      <li><strong>Google Fonts</strong> — serviço de fontes tipográficas fornecido pela Google LLC. Ao carregar as fontes, o navegador pode enviar o endereço IP do visitante aos servidores do Google. Consulte a <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--gold);">Política de Privacidade do Google</a>.</li>
+      <li><strong>Elfsight</strong> — serviço de exibição de feed do Instagram, utilizado na página da Alphaview Imóveis. Pode utilizar cookies técnicos próprios para funcionamento do widget. Consulte a <a href="https://elfsight.com/privacy-policy/" target="_blank" rel="noopener" style="color:var(--gold);">Política de Privacidade do Elfsight</a>.</li>
+    </ul>
+    <p>Você pode configurar seu navegador para recusar cookies a qualquer momento; contudo, isso pode afetar o funcionamento de algumas funcionalidades da página.</p>
 
     <h2>4. Compartilhamento de dados</h2>
     <p>Não compartilhamos dados pessoais com terceiros, exceto nas hipóteses legalmente previstas, como em cumprimento de ordem judicial ou requisição de autoridade competente. Em nenhuma hipótese os dados são comercializados ou transferidos para fins de marketing.</p>
@@ -188,6 +223,20 @@
   window.addEventListener('scroll', () => {
     document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 50);
   });
+
+  // Cookie banner
+  function aceitarCookies() {
+    localStorage.setItem('cookies_aceitos', '1');
+    document.getElementById('cookie-banner').classList.add('hidden');
+  }
+  if (localStorage.getItem('cookies_aceitos') === '1') {
+    document.getElementById('cookie-banner').classList.add('hidden');
+  }
 </script>
+
+<div id="cookie-banner">
+  <span>Este site utiliza cookies técnicos e recursos de terceiros (Google Fonts, Elfsight). Saiba mais em nossa <a href="politica.html">Política de Privacidade</a>.</span>
+  <button id="cookie-btn" onclick="aceitarCookies()">Entendi</button>
+</div>
 </body>
 </html>
