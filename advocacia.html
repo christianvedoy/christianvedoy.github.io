@@ -162,18 +162,6 @@
   .insta-feed { background: var(--white); border: 1px solid rgba(201,168,76,0.15); border-radius: 4px; min-height: 280px; padding: 1rem; width: 100%; }
   .insta-feed-placeholder { color: var(--gray); font-size: 0.85rem; line-height: 1.6; text-align: center; }
 
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; }
-    .hero-right-adv { display: block; padding-top: 0; height: 320px; }
-    .hero-right-adv img { object-fit: cover; object-position: center top; }
-    .hero-right-adv::after { background: linear-gradient(to bottom, var(--cream) 0%, transparent 30%); }
-    .hero-left-adv { padding: 8rem 2rem 2rem; }
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 70px; left: 0; right: 0; background: rgba(248,245,240,0.97); padding: 1.5rem 2rem; gap: 1.25rem; border-top: 1px solid rgba(201,168,76,0.2); }
-    .areas-grid, .id-grid { grid-template-columns: 1fr; }
-  }
-
   /* HERO COM FOTO */
   .hero {
     min-height: 60vh;
@@ -208,6 +196,19 @@
                 linear-gradient(to top, var(--navy) 0%, transparent 20%);
     pointer-events: none;
   }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right-adv { display: block; padding-top: 0; height: 320px; }
+    .hero-right-adv img { object-fit: cover; object-position: center top; }
+    .hero-right-adv::after { background: linear-gradient(to bottom, var(--cream) 0%, transparent 30%); }
+    .hero-left-adv { padding: 8rem 2rem 2rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 70px; left: 0; right: 0; background: rgba(248,245,240,0.97); padding: 1.5rem 2rem; gap: 1.25rem; border-top: 1px solid rgba(201,168,76,0.2); }
+    .areas-grid, .id-grid { grid-template-columns: 1fr; }
+  }
+
 
   /* REDES SOCIAIS */
   .insta-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--navy); margin-bottom: 0.4rem; }
