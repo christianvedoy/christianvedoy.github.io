@@ -144,21 +144,7 @@
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; }
-    .hero-right-imob { display: block; padding-top: 0; height: 320px; }
-    .hero-right-imob img { object-fit: cover; object-position: center top; }
-    .hero-right-imob::after { background: linear-gradient(to bottom, var(--dark1) 0%, transparent 30%); }
-    .hero-left-adv { padding: 8rem 2rem 2rem; }
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 70px; left: 0; right: 0; background: rgba(14,14,14,0.97); padding: 1.5rem 2rem; gap: 1.25rem; border-top: 1px solid rgba(201,168,76,0.15); }
-    .imoveis-grid { grid-template-columns: repeat(2,1fr); }
-    .id-grid { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 480px) { .imoveis-grid { grid-template-columns: 1fr; } }
-
-  /* HERO COM FOTO */
+/* HERO COM FOTO */
   .hero {
     min-height: 60vh;
     padding: 0 !important;
@@ -190,8 +176,50 @@
   }
   @media (max-width: 900px) {
     .hero { grid-template-columns: 1fr; }
-    .hero-right-imob { display: none; }
-    .hero-left-imob { padding: 8rem 2rem 4rem; }
+    .hero-right-imob { display: block; padding-top: 0; height: 320px; }
+    .hero-right-imob img { object-fit: cover; object-position: center top; }
+    .hero-right-imob::after { background: linear-gradient(to bottom, var(--dark1) 0%, transparent 30%); }
+    .hero-left-adv { padding: 8rem 2rem 2rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 70px; left: 0; right: 0; background: rgba(14,14,14,0.97); padding: 1.5rem 2rem; gap: 1.25rem; border-top: 1px solid rgba(201,168,76,0.15); }
+    .imoveis-grid { grid-template-columns: repeat(2,1fr); }
+    .id-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) { .imoveis-grid { grid-template-columns: 1fr; } }
+
+  
+
+
+  /* COOKIE BANNER */
+  #cookie-banner {
+    position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+    z-index: 999;
+    background: rgba(14,14,14,0.97);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 3px;
+    padding: 0.5rem 1rem 0.5rem 1.25rem;
+    display: flex; align-items: center; gap: 1.25rem;
+    font-size: 0.72rem; color: rgba(255,255,255,0.6);
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    transition: opacity 0.4s ease;
+    opacity: 1;
+  }
+  #cookie-banner.hidden { opacity: 0; pointer-events: none; }
+  #cookie-banner a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); }
+  #cookie-banner a:hover { color: var(--gold-light); }
+  #cookie-btn {
+    background: none; border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold); font-size: 0.65rem; font-family: 'Jost', sans-serif;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.25rem 0.75rem; border-radius: 2px; cursor: pointer;
+    white-space: nowrap; transition: all 0.3s; flex-shrink: 0;
+  }
+  #cookie-btn:hover { background: var(--gold); color: var(--dark1); }
+  @media (max-width: 600px) {
+    #cookie-banner { white-space: normal; width: calc(100% - 2.5rem); left: 1.25rem; transform: none; flex-wrap: wrap; }
   }
 
 </style>
@@ -352,7 +380,20 @@
       <span class="insta-handle">@alphaviewimoveis</span>
       <div class="insta-feed">
         <!-- Elfsight Instagram Feed -->
-        <script src="https://elfsightcdn.com/platform.js" async></script>
+        <script src="https://elfsightcdn.com/platform.js" async>
+  // Cookie banner
+  function aceitarCookies() {
+    localStorage.setItem('cookies_aceitos', '1');
+    document.getElementById('cookie-banner').classList.add('hidden');
+  }
+  if (localStorage.getItem('cookies_aceitos') === '1') {
+    document.getElementById('cookie-banner').classList.add('hidden');
+  } else {
+    setTimeout(function() {
+      localStorage.setItem('cookies_aceitos', '1');
+      document.getElementById('cookie-banner').classList.add('hidden');
+    }, 5000);
+  }</script>
         <div class="elfsight-app-f05ecaa9-fd69-4a60-8cea-f9337f72804a" data-elfsight-app-lazy></div>
       </div>
     </div>
@@ -411,6 +452,24 @@
       dots.forEach((d, i) => d.classList.toggle('active', i === current));
     }, 3000);
   });
-</script>
+
+  // Cookie banner
+  function aceitarCookies() {
+    localStorage.setItem('cookies_aceitos', '1');
+    document.getElementById('cookie-banner').classList.add('hidden');
+  }
+  if (localStorage.getItem('cookies_aceitos') === '1') {
+    document.getElementById('cookie-banner').classList.add('hidden');
+  } else {
+    setTimeout(function() {
+      localStorage.setItem('cookies_aceitos', '1');
+      document.getElementById('cookie-banner').classList.add('hidden');
+    }, 5000);
+  }</script>
+
+<div id="cookie-banner">
+  <span>Este site utiliza cookies técnicos e recursos de terceiros (Google Fonts, Elfsight). Saiba mais em nossa <a href="politica.html">Política de Privacidade</a>.</span>
+  <button id="cookie-btn" onclick="aceitarCookies()">Entendi</button>
+</div>
 </body>
 </html>
