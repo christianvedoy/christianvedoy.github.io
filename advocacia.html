@@ -215,10 +215,38 @@
   .insta-feed { background: var(--white); border: 1px solid rgba(201,168,76,0.15); border-radius: 4px; min-height: 280px; padding: 1rem; width: 100%; }
   .insta-feed-placeholder { color: var(--gray); font-size: 0.85rem; line-height: 1.6; text-align: center; }
 
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; }
-    .hero-right-adv { display: none; }
-    .hero-left-adv { padding: 8rem 2rem 4rem; }
+
+
+
+  /* COOKIE BANNER */
+  #cookie-banner {
+    position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+    z-index: 999;
+    background: rgba(26,37,64,0.97);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 3px;
+    padding: 0.5rem 1rem 0.5rem 1.25rem;
+    display: flex; align-items: center; gap: 1.25rem;
+    font-size: 0.72rem; color: rgba(255,255,255,0.6);
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 1;
+  }
+  #cookie-banner.hidden { opacity: 0; pointer-events: none; }
+  #cookie-banner a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); }
+  #cookie-banner a:hover { color: var(--gold-light); }
+  #cookie-btn {
+    background: none; border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold); font-size: 0.65rem; font-family: 'Jost', sans-serif;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.25rem 0.75rem; border-radius: 2px; cursor: pointer;
+    white-space: nowrap; transition: all 0.3s; flex-shrink: 0;
+  }
+  #cookie-btn:hover { background: var(--gold); color: var(--navy); }
+  @media (max-width: 600px) {
+    #cookie-banner { white-space: normal; width: calc(100% - 2.5rem); left: 1.25rem; transform: none; flex-wrap: wrap; }
   }
 
 </style>
@@ -381,6 +409,24 @@
   window.addEventListener('scroll', () => {
     document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 50);
   });
-</script>
+
+  // Cookie banner
+  function aceitarCookies() {
+    localStorage.setItem('cookies_aceitos', '1');
+    document.getElementById('cookie-banner').classList.add('hidden');
+  }
+  if (localStorage.getItem('cookies_aceitos') === '1') {
+    document.getElementById('cookie-banner').classList.add('hidden');
+  } else {
+    setTimeout(function() {
+      localStorage.setItem('cookies_aceitos', '1');
+      document.getElementById('cookie-banner').classList.add('hidden');
+    }, 5000);
+  }</script>
+
+<div id="cookie-banner">
+  <span>Este site utiliza cookies técnicos e recursos de terceiros (Google Fonts). Saiba mais em nossa <a href="politica.html">Política de Privacidade</a>.</span>
+  <button id="cookie-btn" onclick="aceitarCookies()">Entendi</button>
+</div>
 </body>
 </html>
