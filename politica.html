@@ -241,16 +241,21 @@
   // Cookie banner
   function aceitarCookies() {
     localStorage.setItem('cookies_aceitos', '1');
-    document.getElementById('cookie-banner').classList.add('hidden');
+    var b = document.getElementById('cookie-banner');
+    if (b) b.classList.add('hidden');
   }
-  if (localStorage.getItem('cookies_aceitos') === '1') {
-    document.getElementById('cookie-banner').classList.add('hidden');
-  } else {
-    setTimeout(function() {
-      localStorage.setItem('cookies_aceitos', '1');
-      document.getElementById('cookie-banner').classList.add('hidden');
-    }, 6000);
-  }
+  window.addEventListener('DOMContentLoaded', function() {
+    var banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+    if (localStorage.getItem('cookies_aceitos') === '1') {
+      banner.classList.add('hidden');
+    } else {
+      setTimeout(function() {
+        localStorage.setItem('cookies_aceitos', '1');
+        banner.classList.add('hidden');
+      }, 6000);
+    }
+  });
 </script>
 
 <div id="cookie-banner">
