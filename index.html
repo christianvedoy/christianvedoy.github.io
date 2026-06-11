@@ -81,7 +81,7 @@
     font-size: clamp(2.2rem, 4vw, 3.5rem);
     font-weight: 300; color: var(--white); line-height: 1.15;
   }
-  .hero h1 strong { font-weight: 600; color: var(--gold-light); display: block; }
+  .hero h1 strong { font-weight: 600; color: var(--gold-light); }
   .hero-desc {
     font-size: 0.97rem; line-height: 1.85;
     color: rgba(255,255,255,0.55); font-weight: 300; max-width: 580px;
@@ -146,6 +146,7 @@
   }
   .comp-label { font-size: 0.63rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
   .comp-value { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--white); font-weight: 500; line-height: 1.3; }
+  .comp-badge { display: inline-block; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy); background: var(--gold); font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 2px; margin-top: 0.5rem; align-self: flex-start; }
   .comp-inst { font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 0.1rem; }
 
   /* CONTATO */
@@ -237,7 +238,7 @@
 <nav id="mainNav">
   <a href="#" class="nav-logo"><img src="index_logo.png" alt="Christian Adamatti Vedoy"></a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#">Christian Vedoy</a></li>
+    <li><a href="#">Sobre mim</a></li>
     <li><a href="advocacia.html">Advocacia</a></li>
     <li><a href="imobiliaria.html">Alphaview Imóveis</a></li>
     <li><a href="#contato" class="nav-cta">Contato</a></li>
@@ -249,8 +250,8 @@
 <div class="hero">
   <div class="hero-left-adv">
     <div class="hero-eyebrow"><span>Curitiba — PR</span></div>
-    <h1>Christian<br><strong>Adamatti Vedoy</strong></h1>
-    <p class="hero-desc">Minha trajetória profissional reúne atividades nas áreas jurídica, administrativa e imobiliária. Residente em Curitiba/PR.</p>
+    <h1>Christian <strong>Adamatti Vedoy</strong></h1>
+    <p class="hero-desc">Residente em Curitiba/PR. Bacharel em Direito e em Administração de Empresas, pós-graduado em Direito do Trabalho e Processual do Trabalho, com formação técnica em Transações Imobiliárias.</p>
   </div>
   <div class="hero-right-adv">
     <img src="index_foto.jpg" alt="Christian Adamatti Vedoy">
@@ -264,9 +265,9 @@
     <div class="reveal">
       <div class="section-label"><span>Sobre</span></div>
       <p>Sou bacharel em Direito e em Administração de Empresas pela Universidade Positivo, com pós-graduação em Direito do Trabalho e Direito Processual do Trabalho pelas Faculdades Opet.</p>
-      <p>Ao longo da minha trajetória profissional desenvolvi atividades nas áreas jurídica e administrativa, atuando na análise de questões jurídicas, na organização de rotinas administrativas e na avaliação de diferentes situações que envolvem aspectos legais, organizacionais e patrimoniais.</p>
-      <p>Minha formação multidisciplinar nas áreas de Direito e Administração permite uma visão integrada de aspectos jurídicos, administrativos e de gestão, especialmente em contextos que envolvem relações contratuais, organização patrimonial e estruturação de atividades empresariais.</p>
-      <p>Também busco constante aprimoramento profissional por meio de cursos e formações complementares nas áreas jurídica, administrativa e de gestão.</p>
+      <p>Minha trajetória acadêmica e profissional se construiu na interseção entre o Direito e a Administração, áreas que estudei e que moldaram minha forma de compreender questões legais, organizacionais e patrimoniais.</p>
+      <p>Essa formação multidisciplinar me proporciona uma visão integrada de temas jurídicos, administrativos e de gestão, em especial naqueles que envolvem relações contratuais, organização patrimonial e a estruturação de atividades empresariais.</p>
+      <p>Mantenho o hábito do aprimoramento contínuo, com cursos e formações complementares nas áreas jurídica, administrativa e de gestão.</p>
 
       <div class="formacao-grid">
         <div class="formacao-item">
@@ -291,9 +292,9 @@
 
     <div class="reveal">
       <div class="section-label"><span>Formação Complementar</span></div>
-      <p>Realizei cursos complementares nas áreas jurídica, administrativa e de gestão.</p>
-      <p>Realizei curso de Perícia Judicial, promovido na sede do Conselho Regional de Administração do Paraná (CRA-PR), voltado à atuação técnica em processos judiciais.</p>
-      <p>Também concluí formação técnica na área de Transações Imobiliárias, voltada à atuação no mercado imobiliário, bem como formação específica na área de avaliação imobiliária, direcionada à elaboração de pareceres técnicos e avaliações de bens imóveis.</p>
+      <p>Busco aprimoramento técnico contínuo por meio de cursos complementares nas áreas jurídica, administrativa e de gestão.</p>
+      <p>Concluí o curso de Perícia Judicial, promovido na sede do Conselho Regional de Administração do Paraná (CRA-PR), voltado à atuação técnica em processos judiciais, bem como formação técnica em Transações Imobiliárias, direcionada ao mercado imobiliário.</p>
+      <p>Atualmente, realizo formação específica em Avaliação Imobiliária, voltada à elaboração de pareceres técnicos e à avaliação de bens imóveis.</p>
 
       <div class="comp-grid">
         <div class="comp-item">
@@ -310,6 +311,7 @@
           <div class="comp-label">Curso</div>
           <div class="comp-value">Avaliação Imobiliária</div>
           <div class="comp-inst">Pareceres técnicos e avaliação de bens imóveis</div>
+          <span class="comp-badge">Em andamento</span>
         </div>
       </div>
     </div>
@@ -323,17 +325,15 @@
     <div class="reveal">
       <div class="section-label"><span style="color:var(--gold);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;">Contato</span></div>
       <div class="contato-items">
-        <a href="https://wa.me/5541988038383?text=Olá%2C+gostaria+de+mais+informações" class="contato-item" target="_blank" rel="noopener">
-          <div class="contato-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
-          <div><div class="contato-label">WhatsApp</div><div class="contato-value">(41) 98803-8383</div></div>
-        </a>
-        <a href="mailto:christianvedoy@gmail.com" class="contato-item">
-          <div class="contato-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
-          <div><div class="contato-label">E-mail</div><div class="contato-value">christianvedoy@gmail.com</div></div>
-        </a>
+
+
         <a href="https://www.instagram.com/christianvedoy" class="contato-item" target="_blank" rel="noopener">
           <div class="contato-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div>
           <div><div class="contato-label">Instagram</div><div class="contato-value">@christianvedoy</div></div>
+        </a>
+        <a href="https://www.facebook.com/christianvedoy" class="contato-item" target="_blank" rel="noopener">
+          <div class="contato-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
+          <div><div class="contato-label">Facebook</div><div class="contato-value">christianvedoy</div></div>
         </a>
       </div>
     </div>
@@ -360,16 +360,21 @@
   // Cookie banner
   function aceitarCookies() {
     localStorage.setItem('cookies_aceitos', '1');
-    document.getElementById('cookie-banner').classList.add('hidden');
+    var b = document.getElementById('cookie-banner');
+    if (b) b.classList.add('hidden');
   }
-  if (localStorage.getItem('cookies_aceitos') === '1') {
-    document.getElementById('cookie-banner').classList.add('hidden');
-  } else {
-    setTimeout(function() {
-      localStorage.setItem('cookies_aceitos', '1');
-      document.getElementById('cookie-banner').classList.add('hidden');
-    }, 5000);
-  }
+  window.addEventListener('DOMContentLoaded', function() {
+    var banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+    if (localStorage.getItem('cookies_aceitos') === '1') {
+      banner.classList.add('hidden');
+    } else {
+      setTimeout(function() {
+        localStorage.setItem('cookies_aceitos', '1');
+        banner.classList.add('hidden');
+      }, 10000);
+    }
+  });
 </script>
 
 <div id="cookie-banner">
